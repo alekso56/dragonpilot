@@ -52,16 +52,9 @@ def register(show_spinner=False) -> str:
     # Block until we get the imei
     serial = HARDWARE.get_serial()
     start_time = time.monotonic()
-    imei1, imei2 = None, None
-    while imei1 is None and imei2 is None:
-      try:
-        imei1, imei2 = HARDWARE.get_imei(0), HARDWARE.get_imei(1)
-      except Exception:
-        cloudlog.exception("Error getting imei, trying again...")
-        time.sleep(1)
-
-      if time.monotonic() - start_time > 60 and show_spinner:
-        spinner.update(f"registering device - serial: {serial}, IMEI: ({imei1}, {imei2})")
+        
+    imei1 = "696969696969613"
+    imei2 = "696969696969614"
 
     params.put("IMEI", imei1)
     params.put("HardwareSerial", serial)
