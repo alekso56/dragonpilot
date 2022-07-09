@@ -23,7 +23,7 @@ from jsonrpc import JSONRPCResponseManager, dispatcher
 from websocket import (ABNF, WebSocketException, WebSocketTimeoutException,
                        create_connection)
 from common.params import Params
-API_HOST = os.getenv('API_HOST', 'https://api.commadotai.com') if not Params().get_bool("dp_api_custom") else Params().get("dp_api_custom_url", encoding='utf-8')
+API_HOST = os.getenv('API_HOST', 'https://api.retropilot.org') if not Params().get_bool("dp_api_custom") else Params().get("dp_api_custom_url", encoding='utf-8')
 
 import cereal.messaging as messaging
 from cereal import log
@@ -40,7 +40,7 @@ from selfdrive.statsd import STATS_DIR
 from selfdrive.swaglog import SWAGLOG_DIR, cloudlog
 from selfdrive.version import get_commit, get_origin, get_short_branch, get_version
 
-ATHENA_HOST = os.getenv('ATHENA_HOST', 'wss://athena.comma.ai')
+ATHENA_HOST = os.getenv('ATHENA_HOST', 'wss://athena.retropilot.org')
 HANDLER_THREADS = int(os.getenv('HANDLER_THREADS', "4"))
 LOCAL_PORT_WHITELIST = {8022}
 
